@@ -23,11 +23,7 @@ class BookController extends Controller
     public function store(Request $request){
         
         $book = new Book();
-        $book->inout = $request->input("inout");
-        $book->year = $request->input("year");
-        $book->month = $request->input("month");
-        $book->category = $request->input("category");
-        $book->amount = $request->input("amount");
+        $book->fill($request->all());
         $book->save();
         
         return redirect()->route('books.show', $book);
@@ -39,11 +35,7 @@ class BookController extends Controller
     
     public function update(Request $request, Book $book){
 
-        $book->inout = $request->input("inout");
-        $book->year = $request->input("year");
-        $book->month = $request->input("month");
-        $book->category = $request->input("category");
-        $book->amount = $request->input("amount");
+        $book->fill($request->all());
         $book->save();
         
         return redirect()->route('books.show', $book);

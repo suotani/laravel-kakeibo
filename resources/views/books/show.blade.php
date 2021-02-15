@@ -23,6 +23,11 @@
         <th>金額</th>
         <td>{{ $book->amount }}万円</td>
     </tr>
+    
+    <tr>
+        <th>メモ</th>
+        <td>{{ $book->memo }}</td>
+    </tr>
 </table>
 <a href="{{route('books.index')}}" class="btn btn-secondary">戻る</a>
 @endsection

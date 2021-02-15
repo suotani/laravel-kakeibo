@@ -32,21 +32,20 @@
       <div class="form-group">
         <label for="product-name">カテゴリ</label>
         <select class="custom-select" name="category" >
-            <option value="趣味"  {{($book->category == "趣味") ? "selected" : ""}}>趣味</option>
-            <option value="食費"  {{($book->category == "食費") ? "selected" : ""}}>食費</option>
-            <option value="光熱費" {{($book->category == "光熱費") ? "selected" : ""}}>光熱費</option>
-            <option value="家賃・ローン" {{($book->category == "家賃・ローン") ? "selected" : ""}}>家賃・ローン</option>
-            <option value="交際費" {{($book->category == "交際費") ? "selected" : ""}}>交際費</option>
-            <option value="教育費" {{($book->category == "教育費") ? "selected" : ""}}>教育費</option>
-            <option value="給料" {{($book->category == "給料") ? "selected" : ""}}>給料</option>
-            <option value="副業" {{($book->category == "副業") ? "selected" : ""}}>副業</option>
-            <option value="臨時収入" {{($book->category == "臨時収入") ? "selected" : ""}}>臨時収入</option>
+          @foreach(App\Book::$categories as $category)
+            <option value="{{$category}}" {{($book->category == $category) ? "selected" : ""}}>{{$category}}</option>
+          @endforeach
         </select>
       </div>
 
       <div class="form-group">
         <label for="product-name">金額</label>
         <input type="number" name="amount" id="product-name" class="form-control" value="{{$book->amount}}" >
+      </div>
+
+      <div class="form-group">
+        <label for="product-name">メモ</label>
+        <input type="text" name="memo" class="form-control" value="{{$book->memo}}" >
       </div>
       
       <button type="submit" class="btn btn-primary">送信</button>

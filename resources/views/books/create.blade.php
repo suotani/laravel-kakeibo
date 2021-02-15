@@ -31,21 +31,20 @@
       <div class="form-group">
         <label for="product-name">カテゴリ</label>
         <select class="custom-select" name="category">
-            <option value="趣味">趣味</option>
-            <option value="食費">食費</option>
-            <option value="光熱費">光熱費</option>
-            <option value="家賃・ローン">家賃・ローン</option>
-            <option value="交際費">交際費</option>
-            <option value="教育費">教育費</option>
-            <option value="給料">給料</option>
-            <option value="副業">副業</option>
-            <option value="臨時収入">臨時収入</option>
+            @foreach(App\Book::$categories as $category)
+              <option value="{{$category}}">{{$category}}</option>
+            @endforeach
         </select>
       </div>
 
       <div class="form-group">
         <label for="product-name">金額</label>
-        <input type="number" name="amount" id="product-name" class="form-control" >
+        <input type="number" name="amount" class="form-control" >
+      </div>
+
+      <div class="form-group">
+        <label for="product-name">メモ</label>
+        <input type="text" name="memo" class="form-control" >
       </div>
       
       <button type="submit" class="btn btn-primary">送信</button>
