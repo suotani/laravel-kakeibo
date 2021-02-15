@@ -13,4 +13,8 @@ class Book extends Model
     protected $fillable = [
         "inout", "year", "month", "category", "amount", "memo"
     ];
+    
+    public function user(){
+        return $this->belongsTo("App\User");
+    }
 }
