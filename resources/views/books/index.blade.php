@@ -15,7 +15,8 @@
     @foreach($books as $book)
     <tr>
         <td>{{ $book->year }}年{{ $book->month }}月</td>
-        <td>{{ $book->inout }}</td>
+        <!-- 最終問題　第一問関連コード  -->
+        <td>{{ ($book->inout == 1) ? "収入" : "支出" }}</td>
         <td>{{ $book->category }}</td>
         <td>{{ $book->amount }}万円</td>
         <td>
