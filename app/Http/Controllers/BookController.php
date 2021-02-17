@@ -34,7 +34,7 @@ class BookController extends Controller
         $book->user_id = Auth::user()->id;
         $book->save();
         
-        return redirect()->route('books.show', $book);
+        return redirect()->route('books.index');
     }
     
     public function edit(Book $book){
