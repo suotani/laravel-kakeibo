@@ -13,6 +13,11 @@
         <th>金額(次月目標)</th>
         <th>リンク</th>
     </tr>
+    
+    @php
+        $sum = 0;
+    @endphp
+    
     @foreach($books as $book)
     <tr>
         <td>{{ $book->year }}年{{ $book->month }}月</td>
@@ -30,6 +35,21 @@
             </form>
         </td>
     </tr>
-   @endforeach
+
+        @php
+          if($book->inout==1){
+            $sum += $book->amount;
+          }else{
+            $sum -= $book->amount;
+          }
+        @endphp
+        
+    @endforeach
+    <tr>
+        <td></td><td></td>
+        <td>合計</td>
+        <td>{{$sum}}万円</td>
+        <td></td>
+    </tr>
 </table>
 @endsection
