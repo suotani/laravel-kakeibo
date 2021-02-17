@@ -19,7 +19,7 @@ class BookController extends Controller
     }
     
      function show(Book $book){
-         $this->checkMyDate($book);
+         $this->checkMyData($book);
          return view("books.show", compact("book"));
      }
      
@@ -38,12 +38,12 @@ class BookController extends Controller
     }
     
     public function edit(Book $book){
-        checkMyDate($book);
+        $this->checkMyData($book);
         return view("books.edit", compact("book"));
     }
     
     public function update(Request $request, Book $book){
-        checkMyDate($book);
+        $this->checkMyData($book);
         $book->fill($request->all());
         $book->save();
         
@@ -51,12 +51,12 @@ class BookController extends Controller
     }
     
     public function destroy(Book $book){
-        checkMyDate($book);
+        $this->checkMyData($book);
         $book->delete();
         return redirect()->route('books.index');
     }
     
-    private function checkMyDate(Book $book){
+    private function checkMyData(Book $book){
         if($book->user_id != Auth::user()->id){
             return redirect()->route('books.index');
         }
