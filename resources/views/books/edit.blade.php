@@ -40,7 +40,12 @@
 
       <div class="form-group">
         <label for="product-name">金額</label>
-        <input type="number" name="amount" id="product-name" class="form-control" value="{{$book->amount}}" >
+        <input type="number" name="amount" class="form-control" value="{{$book->amount}}" >
+      </div>
+
+      <div class="form-group">
+        <label for="product-name">次月目標</label>
+        <input type="number" name="next_goal" class="form-control" value="{{$book->next_goal}}"  >
       </div>
 
       <div class="form-group">

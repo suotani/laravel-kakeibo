@@ -11,7 +11,7 @@ class Book extends Model
     ];
     
     protected $fillable = [
-        "inout", "year", "month", "category", "amount", "memo"
+        "inout", "year", "month", "category", "amount", "memo", "next_goal"
     ];
     
     public function user(){
